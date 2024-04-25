@@ -1,25 +1,23 @@
-
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, onAuthStateChanged, signInWithPopup, signOut, signInWithEmailAndPassword, updateProfile, TwitterAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, onAuthStateChanged, signInWithPopup, signOut, signInWithEmailAndPassword, updateProfile, TwitterAuthProvider } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-
-const auth = getAuth(app);
+import auth from "../Firebase/firebase.config";
 export const AuthContext = createContext(null)
+
 const AuthProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
 
-    const signInUser = (email, password) => {
-        setLoading(true)
-        return signInWithEmailAndPassword(auth, email, password)
-    }
 
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
-
     }
 
+    const signInUser = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
     const signOutUser = () => {
         setLoading(true)
         signOut(auth)
@@ -36,16 +34,8 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
-    const twitterProvider = new TwitterAuthProvider();
-    const createTwitterUser = () => {
-        setLoading(true)
-        return signInWithPopup(auth, twitterProvider)
-    }
 
-    const updateUser = (userData) => {
-        setLoading(false);
-        return updateProfile(auth.currentUser, userData);
-    };
+    
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, user => {
             setUser(user)
@@ -67,8 +57,6 @@ const AuthProvider = ({ children }) => {
         loading,
         createGithubUser,
         createGoogleUser,
-        createTwitterUser,
-        updateUser,
     }
     return (
         <AuthContext.Provider value={authInfo}>
