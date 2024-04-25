@@ -91,7 +91,7 @@ const Signup = () => {
                     </div>
                     <button type="submit" className="block w-full p-3 text-center rounded-sm text-gray-50 bg-violet-600">Register</button>
                 </form>
-                <p className="text-lg flex text-center lg:px-6 text-gray-600">Already have an account?
+                <p className=" text-xs text-center sm:px-6 text-gray-600 justify-center flex">Already have an account?
                     <Link to="/login">
                         <button className="ml-4  font-bold  text-blue-600 items-center justify-center
                          flex">Login <GoArrowRight />  </button>
