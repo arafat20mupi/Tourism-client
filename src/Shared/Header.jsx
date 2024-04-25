@@ -14,13 +14,13 @@ const Header = () => {
         });
     }
     const Navlinks = <>
-        <li > <NavLink>Home</NavLink></li>
-        <li > <NavLink>All Spot</NavLink></li>
+        <li > <NavLink to={'/'}>Home</NavLink></li>
+        <li > <NavLink  to={'/allSpot'}>All Spot</NavLink></li>
         {
-            user && <li > <NavLink>ADD Spot</NavLink></li>
+            user && <li > <NavLink to={'/addSpot'}>Add Spot</NavLink></li>
         }
         {
-            user && <li > <NavLink>My List</NavLink></li>
+            user && <li > <NavLink to={'/myList'}>My List</NavLink></li>
         }
     </>
     return (

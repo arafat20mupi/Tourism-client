@@ -3,6 +3,9 @@ import Root from "../Root";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import AddSpot from "../Pages/AddSpot";
+import AllSpot from "../Pages/AllSpot";
+import MyList from "../Pages/MyList";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +25,22 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-                
+                path: '/addSpot',
+                element: <AddSpot></AddSpot>
+            },
+            {
+                path: '/allSpot',
+                element: <AllSpot></AllSpot>
+            },
+            {
+                path: '/deleteSpot',
+            },
+            {
+                path: '/updateSpot',
+            },
+            {
+                path: 'myList',
+                element: <MyList></MyList>
             }
         ]
     }
