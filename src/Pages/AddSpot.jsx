@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 
 const AddSpot = () => {
     const handleSubmit = async (e) => {
@@ -28,6 +29,10 @@ const AddSpot = () => {
             .then( res => res.json())
             .then( data => {
                 console.log(data);
+                toast.success("Register Succesfully", {
+                    position: "top-center",
+                    autoClose: 1000
+                });
             }) 
     }
     return (

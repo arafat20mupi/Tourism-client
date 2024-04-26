@@ -3,6 +3,7 @@ import { FaPlaneDeparture } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from 'react-toastify';
+import UserProfile from "../Components/UserProfile";
 
 const Header = () => {
     const { user, signOutUser } = useContext(AuthContext)
@@ -15,7 +16,7 @@ const Header = () => {
     }
     const Navlinks = <>
         <li > <NavLink to={'/'}>Home</NavLink></li>
-        <li > <NavLink  to={'/allSpot'}>All Spot</NavLink></li>
+        <li > <NavLink to={'/allSpot'}>All Spot</NavLink></li>
         {
             user && <li > <NavLink to={'/addSpot'}>Add Spot</NavLink></li>
         }
@@ -32,6 +33,8 @@ const Header = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box space-y-1 w-52">
                         {Navlinks}
+                        <li><input type="radio" name="theme-dropdown" className="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Light" value="light" /></li>
+                        <li><input type="radio" name="theme-dropdown" className="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dark" value="dark" /></li>
                     </ul>
                 </div>
 
@@ -43,8 +46,8 @@ const Header = () => {
                     {Navlinks}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <div className="dropdown ">
+            <div className="navbar-end space-x-3">
+                <div className="hidden lg:block dropdown ">
                     <div tabIndex={0} role="button" className="btn m-1">
                         Theme
                         <svg width="12px" height="12px" className="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
@@ -56,11 +59,19 @@ const Header = () => {
                     </ul>
                 </div>
                 {
+                    user && <UserProfile></UserProfile>
+                }
+                {
                     user ?
                         <button onClick={HandleSignOut} className="btn">Log Out</button> :
-                        <Link to="/login" >
-                            <button type="submit" className="btn">Login</button>
-                        </Link>
+                        <div>
+                            <Link to="/login" >
+                                <button type="submit" className="btn">Login</button>
+                            </Link>
+                            <Link to="/signup" >
+                                <button type="submit" className="btn">Signup</button>
+                            </Link>
+                        </div>
                 }
             </div>
         </div>

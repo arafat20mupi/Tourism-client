@@ -7,6 +7,7 @@ import AddSpot from "../Pages/AddSpot";
 import AllSpot from "../Pages/AllSpot";
 import MyList from "../Pages/MyList";
 import TouristsCardDetails from "../Components/TouristsCardDetails";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tourists/:id',
-                element: <TouristsCardDetails></TouristsCardDetails>,
+                element: <PrivateRouter><TouristsCardDetails></TouristsCardDetails> </PrivateRouter>, 
                 loader: ({params}) => fetch(`http://localhost:5000/tourists/${params.id}`),
             },
             {
@@ -37,7 +38,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allSpot',
-                element: <AllSpot></AllSpot>
+                element: <AllSpot></AllSpot>,
+                loader: () => fetch('http://localhost:5000/tourists'),
             },
             {
                 path: '/deleteSpot',
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'myList',
-                element: <MyList></MyList>
+                element: <PrivateRouter><MyList></MyList></PrivateRouter>
             }
         ]
     }

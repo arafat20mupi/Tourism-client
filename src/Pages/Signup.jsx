@@ -64,7 +64,7 @@ const Signup = () => {
     return (
         <div>
             <div className="w-full mx-auto mt-6 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ">
-                <h1 className="text-2xl font-bold text-center">Register</h1>
+                <h1 className="text-2xl font-bold text-center">Sign Up Now</h1>
                 <form onSubmit={handleRigister} className="space-y-6">
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-xl font-semibold text-gray-600"> Your Name</label>
