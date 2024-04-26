@@ -17,8 +17,10 @@ const Signup = () => {
     const handleRigister = e => {
         e.preventDefault();
         const from = new FormData(e.target)
+        const name = from.get('name');
         const email = from.get('email');
         const password = from.get('password');
+        const photoUrl = from.get('photo');
 
         if (password.length < 6) {
             toast.error("Password must be at least 6 characters", {
@@ -49,7 +51,7 @@ const Signup = () => {
                     autoClose: 1000
                 });
                 navigate("/")
-
+                
             })
             .catch(() => {
                 toast.error("Already Register This Account", {

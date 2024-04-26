@@ -1,7 +1,6 @@
-import { toast } from "react-toastify";
 
-const AddSpot = () => {
-    const handleSubmit = async (e) => {
+const Update = () => {
+    const handleUpdate = (e) => {
         e.preventDefault();
         const data = e.target;
         const name = data.name.value;
@@ -15,47 +14,19 @@ const AddSpot = () => {
         const travelTime = data.travelTime.value;
         const totalVisitorsPerYear = data.totalVisitorsPerYear.value
         const image = data.image.value;
-        console.log(name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality);
-        const newTourists = {
-            name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality
+        console.log(name, email, spotName, countryName, description, location, averageCost, travelTime, totalVisitorsPerYear, image, seasonality);
+        const newTouristsData = {
+            name, email, spotName, countryName, description, location, averageCost, travelTime, totalVisitorsPerYear, image, seasonality
         }
-        fetch('http://localhost:5000/tourists', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newTourists)
-            })
-            .then( res => res.json())
-            .then( data => {
-                console.log(data);
-                toast.success("Register Succesfully", {
-                    position: "top-center",
-                    autoClose: 1000
-                });
-            }) 
-
-
-            
-            fetch('http://localhost:5000/user' , {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newTourists)
-            })
-            .then(res => res.json() )
-            .then(data => {
-                console.log(data)
-            })
-    }
+        console.log(newTouristsData);
+    };
     return (
         <div className="container mx-auto">
             <div>
-                <h1 className="text-center text-4xl font-bold">Add Tourists Spot</h1>
+                <h1 className="text-center mt-8 text-4xl font-bold">Update Tourists Spot</h1>
             </div>
             <section className="p-6 dark:text-gray-800">
-                <form onSubmit={handleSubmit} className="container w-full max-w-4xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-200">
+                <form onSubmit={handleUpdate} className="container w-full max-w-4xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-200">
                     <div>
                         <div className="flex justify-between">
                             <div className="w-full ">
@@ -117,13 +88,19 @@ const AddSpot = () => {
                         </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-gray-800 text-white rounded p-2 mt-4 hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-violet-600 dark:text-white">
-                        Add Tourists Spot
-                    </button>
+
+                    <div className="modal-action justify-center">
+                        <button type="submit" className=" bg-gray-800 text-white rounded p-2 mt-4 hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-violet-600 dark:text-white">
+                            Update Tourists Spot
+                        </button>
+                        <form method="dialog">
+                            <button className="w-full bg-gray-800 text-white rounded p-2 mt-4 hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-violet-600 dark:text-white">Close Update </button>
+                        </form>
+                    </div>
                 </form>
             </section>
         </div>
     );
 };
 
-export default AddSpot;
+export default Update;
