@@ -18,7 +18,17 @@ const AddSpot = () => {
         const newTourists = {
             name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality
         }
-        console.log(newTourists);
+        fetch('http://localhost:5000/tourists', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newTourists)
+            })
+            .then( res => res.json())
+            .then( data => {
+                console.log(data);
+            }) 
     }
     return (
         <div className="container mx-auto">
