@@ -19,7 +19,7 @@ const AddSpot = () => {
         const newTourists = {
             name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality
         }
-        fetch('http://localhost:5000/tourists', {
+        fetch('https://y-ochre-six.vercel.app/tourists', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ const AddSpot = () => {
             .then( res => res.json())
             .then( data => {
                 console.log(data);
-                toast.success("Register Succesfully", {
+                toast.success("Add Tourists Spot Succesfully", {
                     position: "top-center",
                     autoClose: 1000
                 });
@@ -37,7 +37,7 @@ const AddSpot = () => {
 
 
             
-            fetch('http://localhost:5000/user' , {
+            fetch('https://y-ochre-six.vercel.app/user' , {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

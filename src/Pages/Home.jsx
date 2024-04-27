@@ -3,11 +3,11 @@ import Banner from "../Components/Banner";
 import TouristsCard from "../Components/TouristsCard";
 
 const Home = () => {
-    const tourists = useLoaderData()
-    console.log(tourists);
+    const tourists = useLoaderData();
     return (
         <div className="space-y-4">
             <Banner></Banner>
+
             <div className="flex flex-col justify-center items-center ">
                 <h2 className="text-3xl  font-bold tracking-wide"> All Tourist Spots</h2>
             </div>

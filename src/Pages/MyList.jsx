@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Update from "../Components/Update";
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -18,7 +18,7 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user/${id}`, {
+                fetch(`https://y-ochre-six.vercel.app/user/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -46,7 +46,8 @@ const MyList = () => {
                         <th>Name</th>
                         <th>Country Name</th>
                         <th>Location</th>
-                        <th>Tourists Spot Name</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,18 +55,21 @@ const MyList = () => {
                         spots.map(spot => {
                             return (
                                 <tr key={spot._id}>
+
                                     <td>{spot.name}</td>
                                     <td>{spot.countryName}</td>
                                     <td>{spot.location}</td>
-                                    <td>{spot.spotName}</td>
                                     <td >
-                                        <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_5').showModal()}>Update</button>
-                                        <dialog id="my_modal_5">
-                                            <Update></Update>
-                                        </dialog>
-                                        <button
-                                            onClick={() => handleDelete(spot._id)}
-                                            className="btn ml-4 btn-secondary">Delete</button>
+                                        <div>
+                                            <Link to={`/update/${spot._id}`}>
+                                                <button className="bg-[#E3B577] hover:bg-[#ab8554] text-white btn  ">
+                                                    Update
+                                                </button>
+                                            </Link>
+                                            <button
+                                                onClick={() => handleDelete(spot._id)}
+                                                className="btn lg:ml-3 btn-secondary">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                             )

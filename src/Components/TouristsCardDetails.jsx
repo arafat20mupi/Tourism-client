@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 const TouristsCardDetails = () => {
     const tourist = useLoaderData()
-    const { image, name, email, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality, _id, location } = tourist;
+    const { image, name, email, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality,  location } = tourist;
     return (
         <div className="container flex flex-col justify-center p-6 mx-auto  lg:flex-row lg:justify-between">
             <div className="flex flex-col justify-center items-center  w-full ">

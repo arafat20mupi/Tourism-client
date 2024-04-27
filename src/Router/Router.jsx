@@ -8,7 +8,7 @@ import AllSpot from "../Pages/AllSpot";
 import MyList from "../Pages/MyList";
 import TouristsCardDetails from "../Components/TouristsCardDetails";
 import PrivateRouter from "./PrivateRouter";
-
+import Update from "../Components/Update";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -17,12 +17,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/tourists'),
+                loader: () => fetch('https://y-ochre-six.vercel.app/tourists'),
             },
             {
                 path: '/tourists/:id',
-                element: <PrivateRouter><TouristsCardDetails></TouristsCardDetails> </PrivateRouter>, 
-                loader: ({params}) => fetch(`http://localhost:5000/tourists/${params.id}`),
+                element: <PrivateRouter><TouristsCardDetails></TouristsCardDetails> </PrivateRouter>,
+                loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/tourists/${params.id}`),
             },
             {
                 path: "/login",
@@ -39,19 +39,18 @@ const router = createBrowserRouter([
             {
                 path: '/allSpot',
                 element: <AllSpot></AllSpot>,
-                loader: () => fetch('http://localhost:5000/tourists'),
+                loader: () => fetch('https://y-ochre-six.vercel.app/tourists'),
             },
             {
-                path: '/deleteSpot',
+                path: "/update/:id",
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/user/${params.id}`),
             },
             {
-                path: '/updateSpot',
-            },
-            {
-                path: 'myList',
+                path: '/myList',
                 element: <PrivateRouter><MyList></MyList></PrivateRouter>,
-                loader: () => fetch('http://localhost:5000/user'),
-            }
+                loader: () => fetch('https://y-ochre-six.vercel.app/user'),
+            },
         ]
     }
 ]);

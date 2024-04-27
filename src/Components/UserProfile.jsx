@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const UserProfile = () => {
-    const { user } = useContext(AuthContext)
-    console.log(user)
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <div className="tooltip tooltip-bottom" data-tip={user?.displayName ? user.displayName : " islam"}>
