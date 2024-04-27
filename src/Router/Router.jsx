@@ -10,6 +10,7 @@ import TouristsCardDetails from "../Components/TouristsCardDetails";
 import PrivateRouter from "./PrivateRouter";
 import Update from "../Components/Update";
 import EroorPage from "../Pages/EroorPage";
+import Countries from "../ExtraPage/Countries";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
                 element: <PrivateRouter><MyList></MyList></PrivateRouter>,
                 loader: () => fetch('https://y-ochre-six.vercel.app/user'),
             },
+            {
+                path: "/extra",
+                element: <Countries></Countries>,
+            }
         ]
     }
 ]);

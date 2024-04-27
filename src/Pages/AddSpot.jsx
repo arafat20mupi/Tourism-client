@@ -15,36 +15,36 @@ const AddSpot = () => {
         const travelTime = data.travelTime.value;
         const totalVisitorsPerYear = data.totalVisitorsPerYear.value
         const image = data.image.value;
-        console.log(name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality);
+        console.log(name, email, spotName, countryName, description, location, averageCost, travelTime, totalVisitorsPerYear, image, seasonality);
         const newTourists = {
-            name , email , spotName , countryName , description , location , averageCost , travelTime , totalVisitorsPerYear, image,  seasonality
+            name, email, spotName, countryName, description, location, averageCost, travelTime, totalVisitorsPerYear, image, seasonality
         }
         fetch('https://y-ochre-six.vercel.app/tourists', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newTourists)
-            })
-            .then( res => res.json())
-            .then( data => {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTourists)
+        })
+            .then(res => res.json())
+            .then(data => {
                 console.log(data);
                 toast.success("Add Tourists Spot Succesfully", {
                     position: "top-center",
                     autoClose: 1000
                 });
-            }) 
-
-
-            
-            fetch('https://y-ochre-six.vercel.app/user' , {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newTourists)
             })
-            .then(res => res.json() )
+
+
+
+        fetch('https://y-ochre-six.vercel.app/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTourists)
+        })
+            .then(res => res.json())
             .then(data => {
                 console.log(data)
             })
@@ -73,6 +73,12 @@ const AddSpot = () => {
                                 <input type="text" name="spotName" placeholder="Your Tourists Spot Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
                             </div>
                             <div className="w-full ml-2">
+                                {/* <select className="select select-bordered join-item">
+                                    <option disabled selected>Filter</option>
+                                    <option>Sci-fi</option>
+                                    <option>Drama</option>
+                                    <option>Action</option>
+                                </select> */}
                                 <label htmlFor="userName">Country Name</label>
                                 <input type="text" name="countryName" placeholder="Your Country Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
                             </div>

@@ -3,6 +3,7 @@ import Banner from "../Components/Banner";
 import TouristsCard from "../Components/TouristsCard";
 import OurTeam from "../Components/OurTeam";
 import FeadBack from "../Components/FeadBack";
+import Countries from "../ExtraPage/Countries";
 
 const Home = () => {
     const tourists = useLoaderData();
@@ -18,6 +19,12 @@ const Home = () => {
                 {
                     tourists.slice(0, 6).map(tourist => <TouristsCard key={tourist._id} tourist={tourist}></TouristsCard>)
                 }
+            </div>
+            <div className="flex flex-col mt-6 lg:mt-24 justify-center items-center ">
+                <h2 className="text-3xl  font-bold tracking-wide"> All Countries </h2>
+            </div>
+            <div className="mt-3 lg:mt-12">
+                <Countries></Countries>
             </div>
             <div className="mt-6 lg:mt-24">
                 <OurTeam></OurTeam>
