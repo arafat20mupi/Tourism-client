@@ -1,12 +1,11 @@
 import { Link, useLoaderData } from "react-router-dom";
-import Update from "../Components/Update";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
 const MyList = () => {
     const myListSpot = useLoaderData();
     const [spots, setsSpot] = useState(myListSpot)
-
+console.log
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -23,7 +22,6 @@ const MyList = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 "Deleted!",

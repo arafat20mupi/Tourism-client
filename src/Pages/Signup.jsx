@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
@@ -7,18 +7,27 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 const Signup = () => {
 
-     const { createUser,setUser } = useContext(AuthContext);
+    const { createUser, setUser,user } = useContext(AuthContext);
+    
+    const [updateProfile , setupDateProfile] = useState()
 
-    const [showPassword ,setShowPassword ] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            setupDateProfile(user.displayName || '');
+            setupDateProfile(user.photoURL || '');
+        }
+    }, [user]);
     const handleRigister = e => {
         e.preventDefault();
+        
         const from = new FormData(e.target)
         const name = from.get('name');
         const email = from.get('email');
         const password = from.get('password');
         const photoUrl = from.get('photo');
-
         if (password.length < 6) {
             toast.error("Password must be at least 6 characters", {
                 position: "top-center",
@@ -45,8 +54,8 @@ const Signup = () => {
             .then(() => {
                 setUser({
                     displayName: name,
-                    photoURL: photoUrl ,
-                    email:email,
+                    photoURL: photoUrl,
+                    email: email,
                     password: password,
                 })
                 toast.success("Register Succesfully", {
@@ -54,7 +63,7 @@ const Signup = () => {
                     autoClose: 1000
                 });
                 navigate("/")
-                
+
             })
             .catch(() => {
                 toast.error("Already Register This Account", {
@@ -72,25 +81,25 @@ const Signup = () => {
                 <h1 className="text-2xl font-bold text-center">Sign Up Now</h1>
                 <form onSubmit={handleRigister} className="space-y-6">
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="username" className="block text-xl font-semibold text-gray-600"> Your Name</label>
-                        <input onChange={(e) => setUpdateName(e.target.value)} type="text" name="name" placeholder="Enter your Name" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
+                        <label className="block text-xl font-semibold text-gray-600"> Your Name</label>
+                        <input onChange={(e) => updateProfile(e.target.value)} type="text" name="name" placeholder="Enter your Name" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="username" className="block text-xl font-semibold text-gray-600"> Photo URL</label>
-                        <input onChange={(e) => setUpdatePhotoURL(e.target.value)}  type="text" name="photo" placeholder="Enter your Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
+                        <label className="block text-xl font-semibold text-gray-600"> Photo URL</label>
+                        <input type="text" name="photo" placeholder="Enter your Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="username" className="block text-xl font-semibold text-gray-600"> Email</label>
-                        <input onChange={(e) => setUpdateEmail(e.target.value)} type="email" name="email" placeholder="Enter your Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
+                        <label className="block text-xl font-semibold text-gray-600"> Email</label>
+                        <input type="email" name="email" placeholder="Enter your Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
                     </div>
                     <div className="space-y-1 relative text-sm">
                         <label htmlFor="password" className="block text-xl font-semibold text-gray-600"> Password</label>
-                        <input 
-                        type={showPassword ? "text" : "password"} 
-                        name="password" id="password" placeholder="Enter your Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            name="password" id="password" placeholder="Enter your Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
                         <div onClick={() => setShowPassword(!showPassword)} className="absolute text-2xl text-gray-600 top-9 right-2">
                             {
-                                showPassword ? <FaEyeSlash/>: <FaEye/>
+                                showPassword ? <FaEyeSlash /> : <FaEye />
                             }
                         </div>
                     </div>

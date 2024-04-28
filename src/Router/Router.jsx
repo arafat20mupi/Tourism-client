@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
-import Signup from "../Pages/Signup";
 import AddSpot from "../Pages/AddSpot";
 import AllSpot from "../Pages/AllSpot";
 import MyList from "../Pages/MyList";
@@ -13,6 +12,7 @@ import EroorPage from "../Pages/EroorPage";
 import Countries from "../ExtraPage/Countries";
 import CountriesCard from "../ExtraPage/CountriesCard";
 import CountriesDetailsPage from "../ExtraPage/CountriesDetailsPage";
+import Signup from "../Pages/Signup";
 const router = createBrowserRouter([
     {
         path: '/',

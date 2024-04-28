@@ -16,9 +16,9 @@ const Header = () => {
     }
     const Navlinks = <>
         <li > <NavLink to={'/'}>Home</NavLink></li>
-        <li > <NavLink to={'/allSpot'}>All Spot</NavLink></li>
+        <li > <NavLink to={'/allSpot'}>All Tourists Spot</NavLink></li>
         {
-            user && <li > <NavLink to={'/addSpot'}>Add Spot</NavLink></li>
+            user && <li > <NavLink to={'/addSpot'}>Add Tourist Spot</NavLink></li>
         }
         {
             user && <li > <NavLink to={'/myList'}>My List</NavLink></li>
@@ -64,12 +64,12 @@ const Header = () => {
                 {
                     user ?
                         <button onClick={HandleSignOut} className="btn">Log Out</button> :
-                        <div>
+                        <div >
                             <Link to="/login" >
-                                <button type="submit" className="btn">Login</button>
+                                <button type="submit" className="btn ">Login</button>
                             </Link>
                             <Link to="/signup" >
-                                <button type="submit" className="btn">Signup</button>
+                                <button type="submit" className="btn lg:ml-3">Signup</button>
                             </Link>
                         </div>
                 }

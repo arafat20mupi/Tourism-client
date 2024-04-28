@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaEye, FaEyeSlash, FaGithub, FaGoogle, FaTwitter, } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle, } from "react-icons/fa";
 import { GoArrowRight } from "react-icons/go";
 import { toast } from 'react-toastify';
 
 
 
 const Login = () => {
-    const { signInUser, createGoogleUser, createTwitterUser, createGithubUser } = useContext(AuthContext);
+    const { signInUser, createGoogleUser, createGithubUser } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -69,23 +69,6 @@ const Login = () => {
                 });
             })
     }
-
-    const handleTwitter = () => {
-        createTwitterUser()
-            .then(() => {
-                toast.success("Login Succesfully", {
-                    position: "top-center",
-                    autoClose: 1000
-                });
-                navigate(location?.state ? location.state : "/")
-            })
-            .catch(() => {
-                toast.error("Login Unsuccesful", {
-                    position: "top-center",
-                    autoClose: 1000
-                });
-            })
-    }
     return (
         <div>
             <div className="w-full mx-auto space-y-3  max-w-md p-8  rounded-xl bg-gray-50 text-gray-800 ">
@@ -99,7 +82,7 @@ const Login = () => {
                     </div>
                     <div className="space-y-1 relative text-sm">
                         <label htmlFor="password" className="block text-xl font-semibold text-gray-600"> Password</label>
-                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter your Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
+                        <input type={showPassword ? "text" : "password" } name="password" id="password" placeholder="Enter your Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" required />
                         <div onClick={() => setShowPassword(!showPassword)} className="absolute text-2xl text-gray-600 top-9 right-2">
                             {
                                 showPassword ? <FaEyeSlash /> : <FaEye />
