@@ -67,7 +67,7 @@ const router = createBrowserRouter([
                 element: <Countries></Countries>
             },
             {
-                path:"/countries/:country_Name",
+                path:"/country_Name/:country_Name",
                 element: <CountriesCard></CountriesCard>,
                 loader: ({ params }) => fetch(`http://localhost:5000/country_Name/${params.country_Name}`),
             },
