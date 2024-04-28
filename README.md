@@ -1,8 +1,20 @@
-# React + Vite
+# Turio 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the repository for my awesome website.
 
-Currently, two official plugins are available:
+### B9 A10 Type-01 Requirements
+### My Category Name Is Southeast Asia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Links
+Firebase host Live Link : https://tourism-web-cd8da.web.app
+
+
+## Features
+
+- Responsive design
+- User authentication
+- Countries Details functionality
+- Interactive maps
+- Social media Authenthication
+- Team Section
+- Toggle dark and Light themes
