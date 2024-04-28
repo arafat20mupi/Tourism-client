@@ -7,12 +7,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 const Signup = () => {
 
-     const { createUser,updateUser,setUser } = useContext(AuthContext);
+     const { createUser,setUser } = useContext(AuthContext);
 
     const [showPassword ,setShowPassword ] = useState(false)
-    const [updateName, setUpdateName] = useState('');
-    const [updatePhotoURL, setUpdatePhotoURL] = useState('');
-    const [updateEmail, setUpdateEmail] = useState('');
     const navigate = useNavigate();
     const handleRigister = e => {
         e.preventDefault();
@@ -46,6 +43,12 @@ const Signup = () => {
 
         createUser(email, password)
             .then(() => {
+                setUser({
+                    displayName: name,
+                    photoURL: photoUrl ,
+                    email:email,
+                    password: password,
+                })
                 toast.success("Register Succesfully", {
                     position: "top-center",
                     autoClose: 1000

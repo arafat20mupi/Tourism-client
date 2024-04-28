@@ -11,6 +11,8 @@ import PrivateRouter from "./PrivateRouter";
 import Update from "../Components/Update";
 import EroorPage from "../Pages/EroorPage";
 import Countries from "../ExtraPage/Countries";
+import CountriesCard from "../ExtraPage/CountriesCard";
+import CountriesDetailsPage from "../ExtraPage/CountriesDetailsPage";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -25,7 +27,6 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tourists/:id',
-                errorElement: <EroorPage />,
                 element: <PrivateRouter><TouristsCardDetails></TouristsCardDetails> </PrivateRouter>,
                 loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/tourists/${params.id}`),
             },
@@ -58,14 +59,18 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myList',
-                errorElement: <EroorPage />,
                 element: <PrivateRouter><MyList></MyList></PrivateRouter>,
                 loader: () => fetch('https://y-ochre-six.vercel.app/user'),
             },
             {
-                path: "/extra",
-                element: <Countries></Countries>,
-            }
+                path: '/',
+                element: <Countries></Countries>
+            },
+            {
+                path:"/countries/:country_Name",
+                element: <CountriesCard></CountriesCard>,
+                loader: ({ params }) => fetch(`http://localhost:5000/country_Name/${params.country_Name}`),
+            },
         ]
     }
 ]);

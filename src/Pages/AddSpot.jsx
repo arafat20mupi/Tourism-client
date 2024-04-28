@@ -1,6 +1,9 @@
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddSpot = () => {
+    const { user } = useContext(AuthContext);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = e.target;
@@ -59,65 +62,68 @@ const AddSpot = () => {
                     <div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Name</label>
-                                <input type="text" id="userName" name="name" placeholder="Your Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Name</label>
+                                <input type="text" id="userName" name="name" disabled defaultValue={user?.displayName} placeholder="Your Name" required className="p-2 w-full rounded focus:outline-none focus:ring bg-slate-400 focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                             <div className="w-full ml-2">
-                                <label htmlFor="userName">Email</label>
-                                <input type="text" name="email" placeholder="Your name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Email</label>
+                                <input type="text" name="email" defaultValue={user?.email} disabled placeholder="Your name" required className="p-2 w-full rounded bg-slate-400 focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Tourists Spot Name</label>
-                                <input type="text" name="spotName" placeholder="Your Tourists Spot Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Tourists Spot Name</label>
+                                <input type="text" name="spotName" placeholder="Your Tourists Spot Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                             <div className="w-full ml-2">
-                                {/* <select className="select select-bordered join-item">
-                                    <option disabled selected>Filter</option>
-                                    <option>Sci-fi</option>
-                                    <option>Drama</option>
-                                    <option>Action</option>
-                                </select> */}
-                                <label htmlFor="userName">Country Name</label>
-                                <input type="text" name="countryName" placeholder="Your Country Name" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+
+                                <label >Country Name</label>
+                                <select name="countryName" className="w-full text-gray-700 p-2 rounded-lg select-bordered join-item text-">
+                                    <option disabled selected>Selact Country</option>
+                                    <option>Bangladesh</option>
+                                    <option>Thailand</option>
+                                    <option>Indonesia</option>
+                                    <option>Malaysia</option>
+                                    <option>Vietnam</option>
+                                    <option>Cambodia</option>
+                                </select>
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Short Description</label>
-                                <input type="text" name="description" placeholder="Your Short Description" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Short Description</label>
+                                <input type="text" name="description" placeholder="Your Short Description" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                             <div className="w-full ml-2">
-                                <label htmlFor="userName"> location</label>
-                                <input type="text" name="location" placeholder="Your  location" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label > location</label>
+                                <input type="text" name="location" placeholder="Your  location" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Average Cost
+                                <label >Average Cost
                                 </label>
-                                <input type="number" name="averageCost" placeholder="Average Cost" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <input type="number" name="averageCost" placeholder="Average Cost" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                             <div className="w-full ml-2">
-                                <label htmlFor="userName">Seasonality</label>
-                                <input type="text" name="seasonality" placeholder="Seasonality" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Seasonality</label>
+                                <input type="text" name="seasonality" placeholder="Seasonality" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Travel Time</label>
-                                <input type="text" name="travelTime" placeholder="Travel Time" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Travel Time</label>
+                                <input type="text" name="travelTime" placeholder="Travel Time" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                             <div className="w-full ml-2">
-                                <label htmlFor="userName">Total Visitors Per Year</label>
-                                <input type="number" name="totalVisitorsPerYear" placeholder="Total Visitors Per Year" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Total Visitors Per Year</label>
+                                <input type="number" name="totalVisitorsPerYear" placeholder="Total Visitors Per Year" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
                         </div>
                         <div className="flex justify-between">
                             <div className="w-full ">
-                                <label htmlFor="userName">Image</label>
-                                <input type="text" name="image" placeholder="Your Photo Url" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 dark:text-white" />
+                                <label >Image</label>
+                                <input type="text" name="image" placeholder="Your Photo Url" required className="p-2 w-full rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-600 " />
                             </div>
 
                         </div>
