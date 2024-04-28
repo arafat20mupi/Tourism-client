@@ -27,6 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tourists/:id',
+                errorElement: <EroorPage />,
                 element: <PrivateRouter><TouristsCardDetails></TouristsCardDetails> </PrivateRouter>,
                 loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/tourists/${params.id}`),
             },
@@ -59,20 +60,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myList',
+                errorElement: <EroorPage />,
                 element: <PrivateRouter><MyList></MyList></PrivateRouter>,
-                loader: () => fetch('https://y-ochre-six.vercel.app/user'),
             },
             {
                 path: '/',
+                errorElement: <EroorPage />,
                 element: <Countries></Countries>
             },
             {
                 path:"/country_Name/:country_Name",
+                errorElement: <EroorPage />,
                 element: <CountriesCard></CountriesCard>,
                 loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/country_Name/${params.country_Name}`),
             },
             {
                 path:'/country_Name/details/:id',
+                errorElement: <EroorPage />,
                 element: <CountriesDetailsPage></CountriesDetailsPage>,
                 loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/country/${params.id}`),
             }

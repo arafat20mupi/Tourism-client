@@ -1,11 +1,19 @@
-import { Link, useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { Link,  } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const MyList = () => {
-    const myListSpot = useLoaderData();
-    const [spots, setsSpot] = useState(myListSpot)
-console.log
+    const [spots, setsSpot] = useState([])
+    
+    useEffect(()=> {
+        fetch('https://y-ochre-six.vercel.app/user')
+         .then((res) => res.json())
+         .then((data) => setsSpot(data))
+    },[])
+
+
+    
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
