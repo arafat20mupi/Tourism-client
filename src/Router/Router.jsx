@@ -69,8 +69,13 @@ const router = createBrowserRouter([
             {
                 path:"/country_Name/:country_Name",
                 element: <CountriesCard></CountriesCard>,
-                loader: ({ params }) => fetch(`http://localhost:5000/country_Name/${params.country_Name}`),
+                loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/country_Name/${params.country_Name}`),
             },
+            {
+                path:'/country_Name/details/:id',
+                element: <CountriesDetailsPage></CountriesDetailsPage>,
+                loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/country/${params.id}`),
+            }
         ]
     }
 ]);

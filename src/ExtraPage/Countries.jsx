@@ -5,7 +5,7 @@ const Countries = () => {
     const [data, setData] = useState([]);
     
     useEffect(()=> {
-        fetch('http://localhost:5000/country_Name')
+        fetch('https://y-ochre-six.vercel.app/country_Name')
          .then((res) => res.json())
          .then((data) => setData(data))
     },[])

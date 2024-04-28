@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CountriesCard = () => {
     const countriesData = useLoaderData();
-console.log(countriesData);
+    console.log(countriesData);
     return (
         <div className="grid grid-cols-1 mt-3 lg:mt-12 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
@@ -22,7 +22,7 @@ console.log(countriesData);
                                 <p className=" text-lg text-black">Seasonality : {country.seasonality} </p>
                             </div>
 
-                            <Link to={`/tourists/${country._id}`} type="button" className="flex  items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-600 text-gray-50">View More</Link>
+                            <Link to={`/country_Name/details/${country._id}`} type="button" className="flex  items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-600 text-gray-50">View More</Link>
                         </div>
                     </div>
                 </div>)
