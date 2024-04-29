@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import TouristsCard from "../Components/TouristsCard";
+import { Helmet } from "react-helmet-async";
 
 const AllSpot = () => {
     const allTouristsSpot = useLoaderData();
@@ -21,6 +22,9 @@ const AllSpot = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Turio/All-Tourist-Spots</title>
+            </Helmet>
             <div className="mb-4">
                 <label htmlFor="sort">Sort by Average Cost:</label>
                 <select

@@ -4,11 +4,15 @@ import TouristsCard from "../Components/TouristsCard";
 import OurTeam from "../Components/OurTeam";
 import FeadBack from "../Components/FeadBack";
 import Countries from "../ExtraPage/Countries";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const tourists = useLoaderData();
     return (
         <div className="">
+            <Helmet>
+                <title>Turio/Home</title>
+            </Helmet>
             <div>
                 <Banner></Banner>
             </div>

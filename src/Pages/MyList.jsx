@@ -2,20 +2,17 @@ import { Link, } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyList = () => {
     const { user } = useContext(AuthContext);
-    console.log(user.email);
-    const [spots, setsSpot] = useState([])
-console.log(spots);
+    const [spots, setsSpot] = useState([]);
+
     useEffect(() => {
         fetch(`https://y-ochre-six.vercel.app/tourists/email/${user.email}`)
             .then((res) => res.json())
             .then((data) => setsSpot(data))
     }, [user.email])
-
-
-
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -49,6 +46,9 @@ console.log(spots);
 
     return (
         <div className="overflow-x-auto ">
+            <Helmet>
+                <title>Turio/MyList</title>
+            </Helmet>
             <table className="table ">
                 <thead >
                     <tr >

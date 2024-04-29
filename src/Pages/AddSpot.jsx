@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddSpot = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = e.target;
@@ -55,6 +55,9 @@ const AddSpot = () => {
     }
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>Turio/Add-Tourists-Spots</title>
+            </Helmet>
             <div>
                 <h1 className="text-center text-4xl font-bold">Add Tourists Spot</h1>
             </div>
@@ -130,7 +133,7 @@ const AddSpot = () => {
                         </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-gray-800 text-white rounded p-2 mt-4 hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-violet-600 dark:text-white">
+                    <button  type="submit" className="w-full bg-gray-800 text-white rounded p-2 mt-4 hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-violet-600 dark:text-white">
                         Add Tourists Spot
                     </button>
                 </form>

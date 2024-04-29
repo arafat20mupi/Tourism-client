@@ -4,6 +4,7 @@ import { GoArrowRight } from "react-icons/go";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
     const { createUser, updateUser, setUser } = useContext(AuthContext);
@@ -83,6 +84,9 @@ const Signup = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Turio/SignUp</title>
+            </Helmet>
             <div className="w-full mx-auto mt-6 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ">
                 <h1 className="text-2xl font-bold text-center">Sign Up Now</h1>
                 <form onSubmit={handleRegister} className="space-y-6">

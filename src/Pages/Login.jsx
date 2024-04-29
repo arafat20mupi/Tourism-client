@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle, } from "react-icons/fa";
 import { GoArrowRight } from "react-icons/go";
 import { toast } from 'react-toastify';
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -71,6 +72,9 @@ const Login = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Turio/Login</title>
+            </Helmet>
             <div className="w-full mx-auto space-y-3  max-w-md p-8  rounded-xl bg-gray-50 text-gray-800 ">
 
                 <h1 className="text-2xl font-bold text-center">Login</h1>

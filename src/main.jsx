@@ -7,14 +7,18 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import { ToastContainer, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SpinerFallbackElement from './Shared/SpinerFallbackElement.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <Suspense fallback={<SpinerFallbackElement></SpinerFallbackElement>}>
-        <RouterProvider router={router} />
-      </Suspense>
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <Suspense fallback={<SpinerFallbackElement></SpinerFallbackElement>}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </AuthProvider>
+    </HelmetProvider>
+
     <ToastContainer />
   </React.StrictMode>,
 )

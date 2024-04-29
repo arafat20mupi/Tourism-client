@@ -1,14 +1,25 @@
 import { useLoaderData } from "react-router-dom";
 const TouristsCardDetails = () => {
     const tourist = useLoaderData()
-    const { image, name, email, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality,  location } = tourist;
+    const { image, name, email, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality, location } = tourist;
     return (
         <div className="container flex flex-col justify-center p-6 mx-auto  lg:flex-row lg:justify-between">
             <div className="flex flex-col justify-center items-center  w-full ">
-                <img
+                <img data-aos="zoom-in"
+                    data-aos-delay="200"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
                     src={image} alt="" className=" flex  h-96 w-full md:px-20 rounded-lg justify-center items-center" />
-                <div className='mt-6 flex justify-between text-start  text-xl font-bold  items-start '>
-                    <div className="">
+                <div data-aos="fade-left"
+                    data-aos-delay="200"
+                    data-aos-duration="200"
+                    data-aos-easing="ease-in-out"
+                    className='mt-6 flex justify-between text-start  text-xl font-bold  items-start '>
+                    <div data-aos="fade-right"
+                        data-aos-delay="200"
+                        data-aos-duration="200"
+                        data-aos-easing="ease-in-out"
+                        className="">
                         Average Cost: <span className="text-red-500 ml-2 ">{averageCost}</span>
                     </div>
                     <div className=" ml-6  lg:ml-12 ">

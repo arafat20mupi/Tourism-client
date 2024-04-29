@@ -20,7 +20,11 @@ const Countries = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" >
             {
                 data.slice(0, 6)?.map(country => <div key={country._id}>
-                    <div className="w-full p-4 rounded-md shadow-md bg-violet-400 text-gray-800">
+                    <div data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        className="w-full p-4 rounded-md shadow-md bg-violet-400 text-gray-800">
                         <div className="  ">
                             <img src={country.image} alt="" className="object-cover hover:scale-105 hover:duration-200 object-center w-full rounded-xl h-72 hover:delay-50" />
                         </div>

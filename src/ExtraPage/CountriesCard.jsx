@@ -7,7 +7,11 @@ const CountriesCard = () => {
         <div className="grid grid-cols-1 mt-3 lg:mt-12 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 countriesData?.map(country => <div key={country._id}>
-                    <div className="w-full  rounded-md shadow-md bg-gray-50 text-gray-800">
+                    <div data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        className="w-full  rounded-md shadow-md bg-gray-50 text-gray-800">
                         <div className="p-4  ">
                             <img src={country.image} alt="" className="object-cover hover:scale-105 hover:duration-200 object-center w-full rounded-xl h-72 hover:delay-50" />
                         </div>

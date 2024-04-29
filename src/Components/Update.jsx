@@ -1,11 +1,11 @@
-
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Update = () => {
-    const touristData = useLoaderData();
-    console.log(touristData);
-    const { image, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality, location, _id } = touristData;
+    const touristDataUpdate = useLoaderData();
+    console.log(touristDataUpdate);
+
+    const { image, spotName, countryName, description, averageCost, totalVisitorsPerYear, travelTime, seasonality, location, _id } = touristDataUpdate;
 
 
     const handleUpdate = async (e) => {
