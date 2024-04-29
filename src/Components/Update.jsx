@@ -71,8 +71,7 @@ const Update = () => {
                             </div>
                             <div className="w-full ml-2">
                                 <label >Country Name</label>
-                                <select name="countryName" className="w-full  p-2 rounded-lg select-bordered join-item text-">
-                                    <option disabled selected>{countryName}</option>
+                                <select name="countryName" className="w-full text-gray-700 p-2 rounded-lg select-bordered join-item " placeholder={countryName}>
                                     <option>Bangladesh</option>
                                     <option>Thailand</option>
                                     <option>Indonesia</option>

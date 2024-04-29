@@ -1,18 +1,21 @@
-import { Link,  } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyList = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user.email);
     const [spots, setsSpot] = useState([])
-    
-    useEffect(()=> {
-        fetch('https://y-ochre-six.vercel.app/user')
-         .then((res) => res.json())
-         .then((data) => setsSpot(data))
-    },[])
+console.log(spots);
+    useEffect(() => {
+        fetch(`https://y-ochre-six.vercel.app/tourists/email/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => setsSpot(data))
+    }, [user.email])
 
 
-    
+
 
     const handleDelete = (id) => {
         Swal.fire({

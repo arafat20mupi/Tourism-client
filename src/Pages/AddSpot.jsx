@@ -79,7 +79,7 @@ const AddSpot = () => {
                             <div className="w-full ml-2">
 
                                 <label >Country Name</label>
-                                <select name="countryName" className="w-full text-gray-700 p-2 rounded-lg select-bordered join-item text-">
+                                <select name="countryName" className="w-full text-gray-700 p-2 rounded-lg select-bordered join-item ">
                                     <option disabled selected>Selact Country</option>
                                     <option>Bangladesh</option>
                                     <option>Thailand</option>
