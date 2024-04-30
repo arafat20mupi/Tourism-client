@@ -53,8 +53,7 @@ const router = createBrowserRouter([
                 loader: () => fetch('https://y-ochre-six.vercel.app/tourists'),
             },
             {
-                path: "/update/:id",
-                errorElement: <EroorPage />,
+                path: "/user/:id",
                 element: <Update></Update>,
                 loader: ({ params }) => fetch(`https://y-ochre-six.vercel.app/user/${params.id}`),
             },

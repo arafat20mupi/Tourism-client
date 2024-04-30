@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import { AuthContext } from "../Provider/AuthProvider";
 
 const Countries = () => {
-    const [data, setData, loading] = useState([]);
+    // const { loading } = useContext(AuthContext);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         fetch('https://y-ochre-six.vercel.app/country_Name')
@@ -10,12 +12,7 @@ const Countries = () => {
             .then((data) => setData(data))
     }, [])
 
-    if (loading) {
-        return <div className="  justify-center text-center flex items-center mt-40 w-full">
-            <span className="loading loading-spinner loading-lg"></span>
-        </div>
-    }
-
+   
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" >
             {
@@ -33,10 +30,11 @@ const Countries = () => {
                         </div>
                         <Link to={`/country_Name/${country.countryName}`} className="flex  items-center justify-center text-white w-full p-3 font-semibold tracking-wide rounded-md  bg-indigo-800 ">{country.countryName} </Link>
                     </div>
+                    
                 </div>)
             }
         </div>
-    );
+    )
 };
 
 export default Countries;
