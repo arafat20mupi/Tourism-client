@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import RobotAnimation from "../ExtraPage/RobotAnimation";
 
 const MyList = () => {
     const { user } = useContext(AuthContext);
@@ -101,43 +102,48 @@ const MyList = () => {
             <Helmet>
                 <title>Turio/MyList</title>
             </Helmet>
-            <table className="table ">
-                <thead >
-                    <tr >
-                        <th>Name</th>
-                        <th>Country Name</th>
-                        <th>Location</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        spots.map(spot => {
-                            return (
-                                <tr key={spot._id}>
+            {
+                spots.length === 0 ? <div>
+                    <RobotAnimation></RobotAnimation>
+                </div> : <table className="table ">
+                    <thead >
+                        <tr >
+                            <th>Name</th>
+                            <th>Country Name</th>
+                            <th>Location</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            spots.map(spot => {
+                                return (
+                                    <tr key={spot._id}>
 
-                                    <td>{spot.name}</td>
-                                    <td>{spot.countryName}</td>
-                                    <td>{spot.location}</td>
-                                    <td >
-                                        <div>
-                                            <Link to={`/user/${spot._id}`} >
-                                                <button className="bg-[#E3B577] hover:bg-[#ab8554] text-white btn  ">
-                                                    Update
-                                                </button>
-                                            </Link>
-                                            <button
-                                                onClick={() => handleDelete(spot._id)}
-                                                className="btn lg:ml-3 btn-secondary">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
+                                        <td>{spot.name}</td>
+                                        <td>{spot.countryName}</td>
+                                        <td>{spot.location}</td>
+                                        <td >
+                                            <div>
+                                                <Link to={`/user/${spot._id}`} >
+                                                    <button className="bg-[#E3B577] hover:bg-[#ab8554] text-white btn  ">
+                                                        Update
+                                                    </button>
+                                                </Link>
+                                                <button
+                                                    onClick={() => handleDelete(spot._id)}
+                                                    className="btn lg:ml-3 btn-secondary">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            }
+
         </div>
     );
 };
