@@ -6,6 +6,7 @@ Turio is a tourism-related website project aimed at providing information about 
 
 - Firebase Hosted Live Link: [Turio Live](https://tourism-web-cd8da.web.app)
 - Server-side Repository: [Turio Server](https://github.com/arafat20mupi/Tourism-server.git)
+- Client-side Repository: [Turio Client](https://github.com/arafat20mupi/Tourism-client.git)
 
 ## Project Overview
 
@@ -26,6 +27,7 @@ Turio is designed to help users explore and learn about various countries in Sou
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: Firebase Authentication
+- **Maps**: Mapbox API
 
 ## Local Setup
 
