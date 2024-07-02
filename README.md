@@ -33,7 +33,7 @@ Turio is designed to help users explore and learn about various countries in Sou
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/arafat20mupi/Turio.git`
+1. Clone the repository: `git clone https://github.com/arafat20mupi/Tourism-client.git`
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
 
@@ -41,7 +41,7 @@ To run the project locally, follow these steps:
 
 If someone wants to clone and run the project locally, they should follow these steps:
 
-1. Clone the project: `git clone https://github.com/arafat20mupi/Turio.git`
+1. Clone the project: `git clone https://github.com/arafat20mupi/Tourism-client.git`
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
 
